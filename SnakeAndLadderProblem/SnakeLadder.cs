@@ -9,11 +9,15 @@ namespace SnakeAndLadderProblem
 {
     public class SnakeLadder
     {
+        internal int PlayerPossition = 0;
         public void Game()
-        {
-             int playerposition = 0;
-            Console.WriteLine("Player Starting Position :" +playerposition);
+        {  
+            Random random = new Random();
+            int DieRoll = random.Next(1, 7);
+            PlayerPossition = DieRoll;
+            Console.WriteLine("Player Position is :"+PlayerPossition);
             Console.ReadLine();
         }
     }
 }
+
