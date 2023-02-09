@@ -11,7 +11,10 @@ namespace SnakeAndLadderProblem
         static void Main(string[] args)
         {
             SnakeLadder snakeLadder=new SnakeLadder();
+            Console.WriteLine("Player Position :" +snakeLadder.PlayerPossition);
+            snakeLadder.PlayingTillWin();
             snakeLadder.Game();
+            Console.ReadLine();
         }
     }
 }

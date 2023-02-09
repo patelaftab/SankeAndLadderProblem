@@ -14,24 +14,36 @@ namespace SnakeAndLadderProblem
         {
             Random random = new Random();
             int DieRoll = random.Next(1, 7);
-            PlayerPossition = DieRoll;
+            Console.WriteLine("Die Rolled No:" + DieRoll);
+            PlayerPossition += DieRoll;
+
             int Option = random.Next(0, 3);
+
             switch (Option)
             {
-                case 1: 
-                    Console.WriteLine("No Play : " + PlayerPossition); 
+                //no play
+                case 0:
+                    Console.WriteLine("No Play : Player Possition " + PlayerPossition);
                     break;
-                case 2:
+                case 1:  //lader
                     PlayerPossition += DieRoll;
-                    Console.WriteLine("lader : " + PlayerPossition);
+                    Console.WriteLine("ladder : Player Possition " + PlayerPossition);
                     break;
-                case 3: 
+                case 2: // snake
                     PlayerPossition -= DieRoll;
-                    Console.WriteLine("Snake : " + PlayerPossition); 
+                    Console.WriteLine("Snake : Player Possition " + PlayerPossition); 
                     break;
             }
-            Console.WriteLine("Player Position is :" + PlayerPossition);
-            Console.ReadLine();
+            if (PlayerPossition < 0)
+                PlayerPossition = 0;
+        }
+        public void PlayingTillWin()
+        {
+            while (PlayerPossition < 100)
+            {
+                Game();
+            }
+            Console.WriteLine("Player Win");
         }
     }
 }
