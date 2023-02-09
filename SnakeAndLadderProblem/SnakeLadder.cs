@@ -10,11 +10,13 @@ namespace SnakeAndLadderProblem
     public class SnakeLadder
     {
         internal int PlayerPossition = 0;
+        internal int DieCount=0;
         public void Game()
         {
             Random random = new Random();
             int DieRoll = random.Next(1, 7);
             Console.WriteLine("Die Rolled No:" + DieRoll);
+            DieCount++;
             PlayerPossition += DieRoll;
             int Option = random.Next(0, 3);
             if (PlayerPossition < 100)
@@ -52,6 +54,7 @@ namespace SnakeAndLadderProblem
                     break;
                 }
             }
+            Console.WriteLine("No of Dies Count TO Win :" +DieCount);
         }
     }
 }
