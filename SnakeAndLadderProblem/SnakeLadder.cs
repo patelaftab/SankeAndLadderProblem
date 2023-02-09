@@ -16,35 +16,44 @@ namespace SnakeAndLadderProblem
             int DieRoll = random.Next(1, 7);
             Console.WriteLine("Die Rolled No:" + DieRoll);
             PlayerPossition += DieRoll;
-
             int Option = random.Next(0, 3);
-
-            switch (Option)
+            if (PlayerPossition < 100)
             {
-                //no play
-                case 0:
-                    Console.WriteLine("No Play : Player Possition " + PlayerPossition);
-                    break;
-                case 1:  //lader
-                    PlayerPossition += DieRoll;
-                    Console.WriteLine("ladder : Player Possition " + PlayerPossition);
-                    break;
-                case 2: // snake
-                    PlayerPossition -= DieRoll;
-                    Console.WriteLine("Snake : Player Possition " + PlayerPossition); 
-                    break;
+                switch (Option)
+                {
+                    //no play
+                    case 0:
+                        Console.WriteLine("No Play : Player Possition " + PlayerPossition);
+                        break;
+                    case 1:  //lader
+                        PlayerPossition += DieRoll;
+                        Console.WriteLine("ladder : Player Possition " + PlayerPossition);
+                        break;
+                    case 2: // snake
+                        PlayerPossition -= DieRoll;
+                        Console.WriteLine("Snake : Player Possition " + PlayerPossition);
+                        break;
+                }
             }
             if (PlayerPossition < 0)
                 PlayerPossition = 0;
+            else if (PlayerPossition > 100)
+                PlayerPossition -= DieRoll;
         }
         public void PlayingTillWin()
         {
-            while (PlayerPossition < 100)
+            while (PlayerPossition < 112)
             {
                 Game();
+
+                if (PlayerPossition == 100)
+                {
+                    Console.WriteLine("Player Win by reaching: " + PlayerPossition);
+                    break;
+                }
             }
-            Console.WriteLine("Player Win");
         }
     }
 }
+
 
